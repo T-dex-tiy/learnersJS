@@ -40,9 +40,48 @@ ourSecondVarFunc();
 
 //Temporal Dead Zone
 
-function yee(){
-    haw = 5;
-    //temporal dead zone nothing is hoisted to the top of the block
-    let haw = 4;
-  console.log(haw);
+// function yee(){
+//     haw = 5;
+//     //temporal dead zone nothing is hoisted to the top of the block
+//     let haw = 4;
+//   console.log(haw);
+// }
+//  yee();
+
+ //let
+ //introduced in ES6
+ //Mirrors many of the items of var when coming to redeclaring.
+ // Big change was where the data gets pushed to. let hijacks the block and pushes the data to the top of the block only not all the way to the global.
+ function barToo(){//this is the start of a local or block scope
+     let foo;
+     //let foo's data will be taken outside of the scope and moved to the global scope.
+     foo = 666;
+     console.log(foo);
+ }
+ barToo();
+
+ //CONST
+ //This was the second keyword that was intorduced in ES6.
+ const whoop = 5;
+//Closures
+//This is where let become very different from var.
+
+debugger;
+
+// var in this scenario is run over each time and returns a new number. The scope is closed each iteration and rerun. Var will be logged as "6" Var in this instance is outside the function and runs until the 'for' requirements are fulfilled.
+for (var i=1; i<=5; i++) {
+	(function(){
+		setTimeout( function timer(){
+			console.log( i );
+		}, i*1000 );
+	})();
 }
+//let bijacks the block and returns "i" each pass thru. It does not run the full loop each time and run turn the same number. This Syntax is a lot cleaner and returns i for each loop thru. Var runs thru all iterations of the loop before returning the data.
+for (let i=1; i<=5; i++) {
+	setTimeout( function timer(){
+		console.log( i );
+	}, i*1000 );
+}
+
+//The examples above do log different numbers because of how "var" and "let" let the function work with the data "i" and the use of them each time it is run thru the function.
+//This also shows closure as well. The Data is built and retained with in the block of the function and garbage collect once the block is finsihed.
