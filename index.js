@@ -4,6 +4,12 @@
 
 // ADD NOTES ABOUT WHAT CAN BE PASSED INTO VAR/LET/CONST
 
+var string="This is a string",
+var boolean = true // or false statement
+var number= 1 // 2,3,4,5...,
+var obj= {data: "structure"},
+var array= [ /* Index collection of Data */ ]
+
 function bar(){//this is the start of a local or block scope
     var foo;
     //var foo's data will be taken outside of the scope and moved to the global scope
@@ -70,9 +76,9 @@ ourSecondVarFunc();
  // Redeclaring a const will throw an error
  whoop = 5;
 
- // Both let and const are helping with minimizing mutabilty of the state. More data is being passed along and with the simpilicty of var it does allow for a little too much changing and this is one reason why you should lean towards always using let and const if possible.
-//Closures
-//This is where let become very different from var.
+// Both let and const help control the mutabilty and scope of the state. var has the tradionally been the only way to pass variable data and with ES6 there is new options to pass the variable data along.
+// Closures
+// This is where let becomes very different from var.
 
 debugger;
 
@@ -84,7 +90,7 @@ for (var i=1; i<=5; i++) {
 		}, i*1000 );
 	})();
 }
-//let bijacks the block and returns "i" each pass thru. It does not run the full loop each time and run turn the same number. This Syntax is a lot cleaner and returns i for each loop thru. Var runs thru all iterations of the loop before returning the data.
+//let hijacks the block and returns "i" each pass thru. It does not run the full loop each time and run turn the same number. This Syntax is a lot cleaner and returns i for each loop thru. Var runs thru all iterations of the loop before returning the data.
 for (let i=1; i<=5; i++) {
 	setTimeout( function timer(){
 		console.log( i );
